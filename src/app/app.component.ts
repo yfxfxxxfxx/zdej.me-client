@@ -13,7 +13,7 @@ export class AppComponent {
   @Output() onConversionChange: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
-    this.conversion = 1;
+    this.conversion = 4;
   }
 
   updateConversionType(conversion) {

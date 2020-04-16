@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImageUploadComponent implements OnInit {
 
+  file: Blob;
+
   constructor() { }
 
   ngOnInit(): void {
