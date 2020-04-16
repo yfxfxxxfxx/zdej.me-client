@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ImageDisplayComponent implements OnInit {
 
-  @Input('sourceURL') sourceURL = '';
+  @Input('sourceUrl') sourceUrl = '';
   processed: boolean;
 
   constructor() { }

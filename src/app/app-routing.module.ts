@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {UploadComponent} from './upload/upload.component';
 
 
 const routes: Routes = [
-  // { path: 'root', component: UploadComponent },
+  { path: 'root', component: UploadComponent },
   // { path: 'gallery', component: GalleryComponent },
   { path: '', redirectTo: '/root', pathMatch: 'full' },
 ];
