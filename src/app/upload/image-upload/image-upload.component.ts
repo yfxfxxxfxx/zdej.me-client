@@ -41,7 +41,7 @@ export class ImageUploadComponent implements OnInit {
   handleInputChange(e) {
     this.file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
 
-    const pattern = /image\/(jpg|png)/;
+    const pattern = /image\/(jpe?g|png)/;
     const reader = new FileReader();
 
     if (!this.file.type.match(pattern)) {
