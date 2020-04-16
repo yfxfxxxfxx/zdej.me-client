@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AppComponent} from '../../app.component';
+import {GalleryComponent} from '../../gallery/gallery.component';
 
 @Component({
   selector: 'app-image-upload',
@@ -49,11 +51,11 @@ export class ImageUploadComponent implements OnInit {
 
     this.loaded = false;
 
-    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.onload = this.handleReaderLoaded.bind(this);
     reader.readAsDataURL(this.file);
   }
 
-  _handleReaderLoaded(e) {
+  handleReaderLoaded(e) {
     const reader = e.target;
     this.imageSrc = reader.result;
     this.loaded = true;
@@ -64,6 +66,10 @@ export class ImageUploadComponent implements OnInit {
     this.file = null;
     this.loaded = false;
     e.preventDefault();
+  }
+
+  loadFromGallery() {
+
   }
 
 }

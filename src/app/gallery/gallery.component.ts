@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpImageService} from '../services/http-image.service';
 import {HttpClient} from '@angular/common/http';
 
@@ -13,7 +13,7 @@ export class GalleryComponent implements OnInit {
 
   constructor(
     private httpImageService: HttpImageService,
-    private http: HttpClient
+    private http: HttpClient,
   ) {
     this.httpImageService = new HttpImageService(http);
   }
@@ -33,5 +33,4 @@ export class GalleryComponent implements OnInit {
       () => console.log('OK')
     );
   }
-
 }

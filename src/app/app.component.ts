@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'client';
   colorMenu = false;
   conversion: Conversion;
-  @Output() onConversionChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() conversionChange: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
     this.conversion = 4;
@@ -19,7 +19,7 @@ export class AppComponent {
   updateConversionType(conversion) {
     console.log('conversion argument: ' + conversion);
     this.conversion = conversion;
-    this.onConversionChange.emit({ conversion: conversion });
+    this.conversionChange.emit({ conversion: conversion });
   }
 
   selectComponent() {

@@ -27,7 +27,7 @@ export class UploadComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.root.onConversionChange.subscribe((data) => {
+    this.root.conversionChange.subscribe((data) => {
       this.conversionType = Conversion[data.conversion];
     });
   }
