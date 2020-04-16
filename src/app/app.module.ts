@@ -1,4 +1,4 @@
-import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,10 +16,16 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { UploadComponent } from './upload/upload.component';
+import { ImageUploadComponent } from './upload/image-upload/image-upload.component';
+import { ImageDisplayComponent } from './upload/image-display/image-display.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UploadComponent,
+    ImageUploadComponent,
+    ImageDisplayComponent
   ],
   imports: [
     BrowserModule,
