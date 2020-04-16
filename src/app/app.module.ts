@@ -19,13 +19,17 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { UploadComponent } from './upload/upload.component';
 import { ImageUploadComponent } from './upload/image-upload/image-upload.component';
 import { ImageDisplayComponent } from './upload/image-display/image-display.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { ThumbnailLoaderComponent } from './gallery/thumbnail-loader/thumbnail-loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadComponent,
     ImageUploadComponent,
-    ImageDisplayComponent
+    ImageDisplayComponent,
+    GalleryComponent,
+    ThumbnailLoaderComponent
   ],
   imports: [
     BrowserModule,
