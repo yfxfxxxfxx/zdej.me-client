@@ -1,0 +1,146 @@
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  min-height: 65px;
+  max-height: 65px;
+}
+
+.mat-toolbar-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.site-title {
+  grid-column: 1 / 2;
+}
+
+.menu-spacer {
+  grid-column: 2 / 5;
+}
+
+.search-button {
+  grid-column: 5 / 6;
+}
+
+.browse-button {
+  border: whitesmoke 1px solid;
+}
+
+@media (min-width: 0px) {
+  .mat-toolbar-row {
+    height: 64px;
+  }
+}
+
+.conversion-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ascii {
+  grid-column: 1 / 2;
+  border-right: white solid 1px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.color-band {
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.negative {
+  grid-column: 3 / 4;
+  border-left: white solid 1px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.color-option-tag {
+  grid-column: 2 / 5;
+  border-radius: 5px;
+}
+
+.color-option-tag:hover {
+  background-color: lightcoral;
+}
+
+.color-option-tag:hover .dropdown-color-menu {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.dropdown-color-menu {
+  display: none;
+  border-radius: 5px;
+  position: absolute;
+  background-color: #296d5f;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+  top: 6.2%;
+  right: 44.3%;
+}
+
+.option-tag {
+  grid-column: 2 / 5;
+  border-radius: 5px;
+}
+
+.option-tag:hover {
+  background-color: lightcoral;
+}
+
+.selected-option-tag {
+  grid-column: 2 / 5;
+  border-radius: 5px;
+  background-color: lightcoral;
+}
+
+.selected-sidebar-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16px;
+  position: relative;
+  height: 30px;
+  list-style-type: disc;
+  background-color: lightcoral;
+}
+
+.sidebar-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16px;
+  position: relative;
+  height: 30px;
+}
+
+.sidebar-option:hover {
+  background-color: lightcoral;
+}
+
+.mat-sidenav-container {
+  min-height: 80vh !important;
+}
+
+.mat-sidenav-content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.router-container {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.root-link {
+  color: white !important;
+  text-decoration: none;
+}

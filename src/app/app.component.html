@@ -1,1 +1,98 @@
-<h1>Placeholder</h1>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div style="height: calc(100vh - 65px);">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout.lt-md="row">
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="site-title" fxLayoutAlign="center center">
+                <a class="root-link" routerLink="/root" routerLinkActive="active">zdej.me</a>
+            </span>
+      <div class="menu-spacer" fxLayoutAlign="row" fxHide.lt-md>
+        <div class="conversion-options" fxFill>
+          <div class="ascii"><span
+            [className]="this.conversion === 0 ? selectComponent() : deselectComponent()"
+            fxLayoutAlign="center center"
+            (click)="updateConversionType(0)">ASCII</span></div>
+          <div class="color-band"><span class="color-option-tag"
+                                        fxLayoutAlign="center center">
+                            Color
+                            <div class="dropdown-color-menu">
+                                <div fxLayoutAlign="center center"
+                                     (click)="updateConversionType(3)"
+                                     [className]="this.conversion === 3 ? selectComponent() : deselectComponent()">Red</div>
+                                <div fxLayoutAlign="center center"
+                                     (click)="updateConversionType(2)"
+                                     [className]="this.conversion === 2 ? selectComponent() : deselectComponent()">Green</div>
+                                <div fxLayoutAlign="center center"
+                                     (click)="updateConversionType(1)"
+                                     [className]="this.conversion === 1 ? selectComponent() : deselectComponent()">Blue</div>
+                                <div fxLayoutAlign="center center"
+                                     (click)="updateConversionType(4)"
+                                     [className]="this.conversion === 4 ? selectComponent() : deselectComponent()">Gray</div>
+                        </div>
+                    </span>
+          </div>
+          <div class="negative"><span
+            [className]="this.conversion === 5 ? selectComponent() : deselectComponent()"
+            fxLayoutAlign="center center"
+            (click)="updateConversionType(5)">Negative</span></div>
+        </div>
+      </div>
+      <div class="search-button" fxShow="true" fxLayoutAlign="center center" fxHide.lt-md>
+        <a class="browse-button" routerLink="/gallery" routerLinkActive="active" mat-button>
+          Browse Images
+        </a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>
+          <mat-icon>close</mat-icon>
+        </a>
+        <a routerLink="/gallery" routerLinkActive="active" mat-list-item>Browse Images</a>
+        <hr>
+        <mat-accordion>
+          <mat-list-item
+            [className]="this.conversion === 0 ? selectSidebarComponent() : deselectSidebarComponent()"
+            (click)="updateConversionType(0)">ASCII
+          </mat-list-item>
+          <mat-list-item (click)="showColorMenu()">Color
+            <mat-icon>expand_more</mat-icon>
+          </mat-list-item>
+          <ul class="color-menu" *ngIf="colorMenu">
+            <mat-list-item
+              [className]="this.conversion === 3 ? selectSidebarComponent() : deselectSidebarComponent()"
+              (click)="updateConversionType(3)">Red
+            </mat-list-item>
+            <mat-list-item
+              [className]="this.conversion === 2 ? selectSidebarComponent() : deselectSidebarComponent()"
+              (click)="updateConversionType(2)">Green
+            </mat-list-item>
+            <mat-list-item
+              [className]="this.conversion === 1 ? selectSidebarComponent() : deselectSidebarComponent()"
+              (click)="updateConversionType(1)">Blue
+            </mat-list-item>
+            <mat-list-item
+              [className]="this.conversion === 4 ? selectSidebarComponent() : deselectSidebarComponent()"
+              (click)="updateConversionType(4)">Gray
+            </mat-list-item>
+          </ul>
+          <mat-list-item
+            [className]="this.conversion === 5 ? selectSidebarComponent() : deselectSidebarComponent()"
+            (click)="updateConversionType(5)">Negative
+          </mat-list-item>
+        </mat-accordion>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxLayoutAlign="stretch center">
+      <div fxFlexFill>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
