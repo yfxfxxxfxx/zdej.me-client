@@ -1,1 +1,19 @@
-<p>image-display works!</p>
+<div fxFlexFill fxLayout="row">
+  <label class="display">
+    <img
+      [src]="sourceUrl"
+      alt="">
+    <span class="placeholder" *ngIf="this.sourceUrl === undefined">Loading...</span>
+    <button class="download-button"
+            *ngIf="sourceUrl != undefined && sourceUrl.length > 0"
+            mat-button mat-icon-button aria-label="Download"
+            (click)="getImageFromURL()">
+      <mat-icon>get_app</mat-icon>
+    </button>
+    <button class="clear-button"
+            *ngIf="sourceUrl != undefined && sourceUrl.length > 0"
+            mat-button mat-icon-button aria-label="Clear" (click)="clearImage($event)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </label>
+</div>
