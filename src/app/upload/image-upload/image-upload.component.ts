@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AppComponent} from '../../app.component';
-import {GalleryComponent} from '../../gallery/gallery.component';
+import {HttpImageService} from '../../services/http-image.service';
+import {ImageSharingService} from '../../services/image-sharing.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-image-upload',
@@ -15,9 +16,27 @@ export class ImageUploadComponent implements OnInit {
   imageSrc = '';
   file: Blob;
 
-  constructor() { }
+  constructor(
+    private imageSharingService: ImageSharingService,
+    private httpImageService: HttpImageService,
+    private http: HttpClient
+  ) {
+    this.httpImageService = new HttpImageService(http);
+  }
 
   ngOnInit(): void {
+    this.imageSharingService.currentSharedUrl.subscribe(
+      url => {
+        if (url.toString().length > 0) {
+          this.imageSrc = url.toString();
+          this.loaded = true;
+          this.httpImageService.getImage(this.imageSrc).subscribe(img => {
+              this.file = this.blobToFile(img, url.split('/').pop());
+            }
+          );
+        }
+      }
+    );
   }
 
   handleDragEnter() {
@@ -68,8 +87,12 @@ export class ImageUploadComponent implements OnInit {
     e.preventDefault();
   }
 
-  loadFromGallery() {
+  blobToFile(blob: Blob, filename: string) {
+    const b: any = blob;
+    b.lastModifiedDate = new Date();
+    b.name = filename;
 
+    return blob as File;
   }
 
 }

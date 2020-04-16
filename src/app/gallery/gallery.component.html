@@ -5,7 +5,7 @@
 <div *ngFor="let i of thumbnailURLs">
   <app-thumbnail-loader class="thumbnail-loader" fxLayoutAlign="center center">
     <!-- (click)="setImageSrc(i)" -->
-    <img class="thumbnail"
+    <img class="thumbnail" (click)="updateSharedUrl(i)"
          *ngIf src="{{i}}" alt="" routerLink="/home" routerLinkActive="active">
   </app-thumbnail-loader>
 </div>
