@@ -1,1 +1,11 @@
-<p>gallery works!</p>
+<hr/>
+<span fxLayoutAlign="center center">Select image below:</span>
+<hr/>
+
+<div *ngFor="let i of thumbnailURLs">
+  <app-thumbnail-loader class="thumbnail-loader" fxLayoutAlign="center center">
+    <!-- (click)="setImageSrc(i)" -->
+    <img class="thumbnail"
+         *ngIf src="{{i}}" alt="" routerLink="/root" routerLinkActive="active">
+  </app-thumbnail-loader>
+</div>
